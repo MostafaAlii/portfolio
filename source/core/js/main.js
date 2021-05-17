@@ -13,3 +13,20 @@
         }
     })
 })();
+/* ------------------ Portfolio filter and popup Section ---------------------------- */
+(() => {
+    const filterContainer = document.querySelector(".portfolio-filter"),
+    portfolioItemsContainer = document.querySelector(".portfolio-items"),
+    portfolioItems = document.querySelectorAll(".portfolio-item"),
+    popup = document.querySelector(".portfolio-popup"),
+    prevBtn = popup.querySelector(".pp-prev"),
+    nextBtn = popup.querySelector(".pp-next"),
+    closeBtn = popup.querySelector(".pp-close"),
+    projectDetailsContainer = popup.querySelector(".pp-details"),
+    projectDetailsBtn = popup.querySelector(".pp-project-details-btn");
+    let itemIndex, slideIndex, screenshots;
+    /* Portfolio Items Filter */
+    filterContainer.addEventListener("click", (event)=>{
+        
+    }) 
+})();
