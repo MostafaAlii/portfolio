@@ -18,6 +18,7 @@ Global Style
     --outer-shadow-0: 0 0 0 #d0d0d0, 0 0 0 #f8f8f8;
     --inner-shadow: inset 3px 3px 3px #d0d0d0, inset -3px -3px 3px #f8f8f8;
     --inner-shadow-0: inset 0 0 0 #d0d0d0, inset 0 0 0 #f8f8f8;
+    --bg-opacity: rgba(255, 255, 255, 0.5);
 }
 /* End Custom Variable */
 body{
@@ -25,6 +26,9 @@ body{
     line-height: 1.5;
     overflow-x: hidden;
     background-color: var(--bg-black-50);
+}
+body.stop-scrolling{
+    overflow-y: hidden;
 }
 *:not(i){
     font-family: 'Cairo', sans-serif;
@@ -756,6 +760,13 @@ Portfolio Sections
     display: flex;
     flex-wrap: wrap;
 }
+.portfolio-section .portfolio-item.hide{
+    display: none;
+}
+.portfolio-section .portfolio-item.show{
+    display: block;
+    animation: fadeInTop 0.5s ease-in-out;
+}
 .portfolio-section .portfolio-item-details{
     display: none;
 }
@@ -814,9 +825,36 @@ Portfolio PopUp
     width: 100%;
     height: 100%;
     z-index: 1000;
-    overflow-y: auto;
+    overflow-y: scroll;
     opacity: 0;
     visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}
+.portfolio-popup.open{
+    visibility: visible;
+    opacity: 1;
+}
+.portfolio-popup .pp-loader{
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1005;
+    background-color: var(--bg-opacity);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+}
+.portfolio-popup .pp-loader div{
+    height: 40px;
+    width: 40px;
+    border: 4px solid var(--skin-color);
+    border-right: 5px solid transparent;
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
 }
 .portfolio-popup .pp-details{
     max-width: 1350px;
